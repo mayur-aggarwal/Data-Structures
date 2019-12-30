@@ -8,8 +8,10 @@ Following ML algos has been implemented.
 
 * ### *Merge Sort:*
 It is divide & conquer based sorting algorithm.
+It first divides unsorted list into n sublist & then repeatedly merge sorted sublist till all sublists get merged.
+Below is the diagram from wikipedia visualising the merge-sort algorithm
 
 <p align="center">
-  <img src="https://github.com/mayur-aggarwal/machine-learning/blob/master/fashion_mnist_sample_dataset.png">
+  <img src="https://github.com/mayur-aggarwal/Data-Structures/blob/master/300px-Merge_sort_algorithm_diagram.svg.png">
 </p>
 <p align="center">Figure 1: Merge Sort.</p>
