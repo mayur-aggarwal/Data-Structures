@@ -10,8 +10,8 @@ Following ML algos has been implemented.
 5. MinHeap & MaxHeap
 
 * ### *Merge Sort:*
-It is divide & conquer based sorting algorithm.
-It first divides unsorted list into n sublist & then repeatedly merge sorted sublist till all sublists get merged.
+It is divide & conquer based sorting algorithm.<br />
+It first divides unsorted list into n sublist & then repeatedly merge sorted sublist till all sublists get merged.<br />
 Below is the diagram from wikipedia visualising the merge-sort algorithm
 
 <p align="center">
