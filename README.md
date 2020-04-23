@@ -46,14 +46,10 @@ Below is the explanation of Multiply Strings:
 
 &nbsp;
 * ### *Heap Sort:*
-A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible (Source Wikipedia).<br />
-&nbsp;
-If the parent node is stored at index I, the left child can be calculated by 2 * i + 1 and right child by 2 * i + 2 (assuming the indexing starts at 0).<br />
-&nbsp;
+A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible (Source Wikipedia).<br />If the parent node is stored at index I, the left child can be calculated by 2 * i + 1 and right child by 2 * i + 2 (assuming the indexing starts at 0).<br />
 #### MinHeap - the smallest item is stored at the root of the heap<br />
 #### MaxHeap - the largest item is stored at the root of the heap<br />
-&nbsp;
-Mainly all important API's are covered like
+&nbsp;Mainly all important API's are covered like<br />
 i) extractMin()<br />
 ii) deletekey(int idx)<br />
 iii) changeValue(index, value)<br />
