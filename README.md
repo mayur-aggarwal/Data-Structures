@@ -7,6 +7,7 @@ Following ML algos has been implemented.
 2. BST based on AVL tree
 3. TRIE
 4. Multiply Strings [Leetcode]
+5. MinHeap & MaxHeap
 
 * ### *Merge Sort:*
 It is divide & conquer based sorting algorithm.
@@ -41,3 +42,16 @@ Below is the explanation of Multiply Strings:
   <img src="https://github.com/mayur-aggarwal/Data-Structures/blob/master/MultiplyStrings_png/Multiply_Strings_3.png">
 </p>
 <p align="center">Figure 4.3.</p>
+
+* ### *Heap Sort:*
+A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible (Source Wikipedia).
+If the parent node is stored at index I, the left child can be calculated by 2 * i + 1 and right child by 2 * i + 2 (assuming the indexing starts at 0).
+MinHeap - the smallest item is stored at the root of the heap
+MaxHeap - the largest item is stored at the root of the heap
+Mainly all important API's are covered like
+i) extractMin()
+ii) deletekey(int idx)
+iii) changeValue(index, value)
+iv) MinHeapify
+v) MaxHeapify
+vi) Conversion from MinHeap to MaxHeap.
