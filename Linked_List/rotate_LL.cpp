@@ -32,7 +32,7 @@ Output: 5 6 7 8 1 2 3 4
 // by k and return new head (if changed)
 Node* rotate(Node* head, int k)
 {
-	if(head == NULL || head->next || k <= 0)
+	if(head == NULL || head->next == NULL || k <= 0)
 		return head;
 	Node* front;
 	Node* back = head;
