@@ -1,6 +1,6 @@
 /**
  * @file ArrayManipulation.cpp
- * @brief Get factorial of a number
+ * @brief Get max number after processing queries
  *
  * @author Mayur Aggarwal
  * @bug No known bugs.
