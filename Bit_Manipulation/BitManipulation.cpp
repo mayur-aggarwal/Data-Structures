@@ -36,14 +36,14 @@ unsigned int CountSetBits(unsigned int n)
 /**
  *  @brief: Function to check if number is power of 2
  *  @param IN: unsigned int number
- *  @return: int
+ *  @return: bool
  */
 bool isPowerTwo(unsigned int n)
 {
 	return (n && !(n & (n-1)));
 }
  
-void swapbits(unsigned int n, unsigned int p1, unsigned int p2)
+unsigned int swapbits(unsigned int n, unsigned int p1, unsigned int p2)
 {
 	unsigned int bit1 = GET_BIT(n, p1);
 	unsigned int bit2 = GET_BIT(n, p2);
@@ -52,7 +52,7 @@ void swapbits(unsigned int n, unsigned int p1, unsigned int p2)
 	return x^n;
 }
 
-void reverse_naive(unsigned int n)
+unsigned int reverse_naive(unsigned int n)
 {
 	unsigned int rev = n;
 	int b = sizeof(n)*8-1;
@@ -68,13 +68,14 @@ void reverse_naive(unsigned int n)
 	return rev;
 }
 
-void reverse_5lgN(unsigned int n)
+unsigned int reverse_5lgN(unsigned int n)
 {
 	n = ((n >> 1)&0x55555555) | ((n & 0x55555555) << 1);
 	n = ((n >> 2)&0x33333333) | ((n & 0x33333333) << 2);
 	n = ((n >> 4)&0x0F0F0F0F) | ((n & 0x0F0F0F0F) << 4);
 	n = ((n >> 8)&0x00FF00FF) | ((n & 0x00FF00FF) << 8);
 	n = ((n >> 16)) | ((n) << 16);
+	return n;
 }
 
 int swapEvenOddBits(unsigned int n)
