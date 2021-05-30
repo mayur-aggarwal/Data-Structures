@@ -9,6 +9,7 @@ Following ML algos has been implemented.<br />
 3. TRIE
 4. Multiply Strings [Leetcode]
 5. MinHeap & MaxHeap
+6. Bit Manipulation
 
 * ### *Merge Sort:*
 It is divide & conquer based sorting algorithm.<br />
@@ -57,3 +58,6 @@ iv) MinHeapify<br />
 v) MaxHeapify<br />
 vi) Conversion from MinHeap to MaxHeap.<br />
 &nbsp;
+
+* ### *Bit Manipulation:* [Ref: https://graphics.stanford.edu/~seander/bithacks.html#CopyIntegerSign]
+  [This is a relative link to a BitManipulation.cpp File](../master/Bit_Manipulation/BitManipulation.cpp)
