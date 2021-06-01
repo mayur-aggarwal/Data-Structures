@@ -16,7 +16,7 @@ using namespace std;
 #define TOGGLE_BIT(n, bit) (n^=(1<<bit))
 #define CHECK_BIT(n, bit) (n&(1<<bit))
 #define GET_BIT(n, bit) (n&(1<<bit))>>bit
-
+#define CHAR_BITS 8
 
 /**
  *  @brief: Function to count set bits in number
@@ -58,10 +58,13 @@ unsigned int reverse_naive(unsigned int n)
 	int b = sizeof(n)*8-1;
 	n >>= 1;
 	while(n)
+	/*
+		above two lines can be merged => for(n >>= 1; n; n>> =1)
+	*/
 	{
 		rev <<= 1;
 		rev |= (n & 1);
-		n >>= 1;
+		n >>= 1;	// with for loop, this line will also be removed
 		b--;
 	}
 	rev <<= b;
@@ -86,4 +89,62 @@ int swapEvenOddBits(unsigned int n)
 void swapByte(unsigned int n)
 {
 	n = ((n & 0x000000FF) << 24) | ((n & 0x00FF00)<<8) | ((n & 0x00FF0000)>> 8) | ((n & 0xFF000000) >> 24);
+}
+
+int findmin(int a, int b)
+{
+	return (b^((a^b)&-(a<b)));
+}
+
+int findmax(int a, int b)
+{
+	return (a^((a^b)&-(a<b)));
+}
+
+int check_sign(int n)
+{
+	return ((n>0) - (n<0));	//1=>+ve, -1=>negative
+}
+
+int is_two_opp_sign(int a, int b)
+{
+	return (a^b)<0;
+}
+
+int rotateLeft(int n, int i)
+{
+	unsigned int c = sizeof(int)*CHAR_BITS - 1;
+	return ((n << i) | n >> (c-i));
+}
+
+int rotateRight(int n, int i)
+{
+	unsigned int c = sizeof(int)*CHAR_BITS - 1;
+	return ((n >> i) | n << (c-i));
+}
+
+int clearFromMsbPos(int n, int i)
+{
+	int mask = (1<<i) - 1;
+	n = n & mask;
+	return n;
+}
+
+int clearFromLSBPos(int n, int i)
+{
+	int mask = (1<<i) - 1;
+	mask = ~mask;
+	n = n & mask;
+	return n;
+}
+
+int ResetBits_bw_i_j_pos(int num, int i, int j)
+{
+	// Assuming j > i
+	int allones = ~0;
+	int left = allones << (j+1);
+	int right = (i << i) - 1;
+	int mask = left | right;
+	int res = num & mask;
+	return res;
 }
