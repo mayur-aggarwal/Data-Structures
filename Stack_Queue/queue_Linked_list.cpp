@@ -1,6 +1,6 @@
 /**
- * @file queue.cpp
- * @brief create queue
+ * @file queue_Linked_list.cpp
+ * @brief create queue using linked list
  *
  * @author Mayur Aggarwal
  * @bug No known bugs.

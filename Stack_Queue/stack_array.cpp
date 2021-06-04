@@ -1,3 +1,12 @@
+/**
+ * @file stack_array.cpp
+ * @brief create stack using array
+ *
+ * @author Mayur Aggarwal
+ * @bug No known bugs.
+ * Contact: aga.mayur@gmail.com
+ *
+ */
 #include <iostream>
 
 using namespace std;

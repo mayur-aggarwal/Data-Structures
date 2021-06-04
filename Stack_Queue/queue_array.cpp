@@ -1,6 +1,6 @@
 /**
  * @file queue.cpp
- * @brief create queue
+ * @brief create queue using array
  *
  * @author Mayur Aggarwal
  * @bug No known bugs.
