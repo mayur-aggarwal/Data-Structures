@@ -113,13 +113,13 @@ int is_two_opp_sign(int a, int b)
 
 int rotateLeft(int n, int i)
 {
-	unsigned int c = sizeof(int)*CHAR_BITS - 1;
+	unsigned int c = sizeof(int)*CHAR_BITS;
 	return ((n << i) | n >> (c-i));
 }
 
 int rotateRight(int n, int i)
 {
-	unsigned int c = sizeof(int)*CHAR_BITS - 1;
+	unsigned int c = sizeof(int)*CHAR_BITS ;
 	return ((n >> i) | n << (c-i));
 }
 
@@ -138,13 +138,41 @@ int clearFromLSBPos(int n, int i)
 	return n;
 }
 
+
+/*
+Example: 
+ResetBits_bw_i_j_pos(189, 2, 5)
+	   				   	 5   210 -> bits 
+mask = ffffffc3 [1111 1111 1111 1111 1111 1111 1100 0011]
+res = 129
+*/
 int ResetBits_bw_i_j_pos(int num, int i, int j)
 {
 	// Assuming j > i
 	int allones = ~0;
 	int left = allones << (j+1);
-	int right = (i << i) - 1;
+	int right = (1 << i) - 1;
 	int mask = left | right;
 	int res = num & mask;
 	return res;
 }
+
+/*
+Example: 
+SetBits_bw_i_j_pos(129, 2, 5)
+	   				   5   210 -> bits 
+mask = 3c [0000 0000 0000 0000 0000 0000 0011 1100]	// 60 in decimal
+res = 189
+*/
+int SetBits_bw_i_j_pos(int num, int i, int j)
+{
+	// Assuming j > i
+	int allones = ~0;
+	int left = allones << (j+1);
+	int right = (1 << i) - 1;
+	int mask = left | right;
+	mask ^= allones;
+	int res = num | mask;
+	return res;
+}
+
