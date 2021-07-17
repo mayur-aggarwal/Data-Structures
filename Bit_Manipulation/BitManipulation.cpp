@@ -182,3 +182,52 @@ int SetBits_bw_i_j_pos(int num, int i, int j)
 	return res;
 }
 
+unsigned int count_trailing_zeroes_naive(unsigned int n)
+{
+	unsigned int c;
+	n = (n ^ (n-1)) >> 1;
+	for(c = 0; n; c++)
+	{
+		n >>= 1;
+	}
+	return c;
+}
+
+unsigned int count_trailing_zeroes_binary_search(unsigned int n)
+{
+	unsigned int c;
+	if(n == 0){
+		c = 31;
+		return c;
+	}
+	if(n & 0x01)	// first bit is 1 then return 0
+	{
+		c = 0;
+	}
+	else
+	{
+		c = 1;
+		if((n & 0xffff) == 0)
+		{
+			n >>= 16;
+			c += 16;
+		}
+		if((n & 0xff) == 0)
+		{
+			n >>= 8;
+			c += 8;
+		}
+		if((n & 0xf) == 0)
+		{
+			n >>= 4;
+			c += 4;
+		}
+		if((n & 0x3) == 0)
+		{
+			n >>= 2;
+			c += 2;
+		}
+		c = c - (n & 1);
+	}
+	return c;
+}
