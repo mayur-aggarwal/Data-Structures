@@ -52,6 +52,12 @@ unsigned int swapbits(unsigned int n, unsigned int p1, unsigned int p2)
 	return x^n;
 }
 
+unsigned int swap_bits_pair(unsigned int num, int p, int i, int j)
+{
+	unsigned int x = ((num << i) ^ (num << j)) & ((1 << p) - 1);
+	return (x ^ ((x << i) | (x << j)));
+}
+
 unsigned int reverse_naive(unsigned int n)
 {
 	unsigned int rev = n;
