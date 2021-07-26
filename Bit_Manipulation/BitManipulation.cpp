@@ -18,6 +18,9 @@ using namespace std;
 #define GET_BIT(n, bit) (n&(1<<bit))>>bit
 #define CHAR_BITS 8
 
+static const int S[] = {1, 2, 4, 8, 16};
+static const int B[] = {0x55555555, 0x33333333, 0x0F0F0F0F, 0x00FF00FF, 0x0000FFFF};
+
 /**
  *  @brief: Function to count set bits in number
  *  @param IN: unsigned int number
@@ -32,6 +35,17 @@ unsigned int CountSetBits(unsigned int n)
 	}
 	return c;
 }
+
+unsigned int count_set_bit_parallel(unsigned int n)
+{
+	int c;
+	c = n - ((n >> S[0]) & B[0]);
+	c = ((c >> S[1]) & B[1]) + (c & B[1]);
+	c = ((c >> S[2])+c) & B[2];
+	c = ((c >> S[3])+c) & B[3];
+	c = ((c >> S[4])+c) & B[4];
+	return c;
+} 
 
 /**
  *  @brief: Function to check if number is power of 2
@@ -54,8 +68,8 @@ unsigned int swapbits(unsigned int n, unsigned int p1, unsigned int p2)
 
 unsigned int swap_bits_pair(unsigned int num, int p, int i, int j)
 {
-	unsigned int x = ((num << i) ^ (num << j)) & ((1 << p) - 1);
-	return (x ^ ((x << i) | (x << j)));
+	unsigned int x = ((num >> i) ^ (num >> j)) & ((1 << p) - 1);
+	return (num ^ ((x << i) | (x << j)));
 }
 
 unsigned int reverse_naive(unsigned int n)
