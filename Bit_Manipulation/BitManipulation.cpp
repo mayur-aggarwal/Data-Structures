@@ -11,6 +11,7 @@
 
 using namespace std;
 
+#define SWAP_XOR(a, b) (&(a) == &(b)) || (((a)^(b)) && ((b)^=(a)^=(b), (a)^=(b)))
 #define SET_BIT(n, bit) (n|=(1<<bit))
 #define CLEAR_BIT(n, bit) (n&=~(1<<bit))
 #define TOGGLE_BIT(n, bit) (n^=(1<<bit))
@@ -56,7 +57,8 @@ bool isPowerTwo(unsigned int n)
 {
 	return (n && !(n & (n-1)));
 }
- 
+
+/*  Swapping individual bits with XOR   */
 unsigned int swapbits(unsigned int n, unsigned int p1, unsigned int p2)
 {
 	unsigned int bit1 = GET_BIT(n, p1);
@@ -66,6 +68,7 @@ unsigned int swapbits(unsigned int n, unsigned int p1, unsigned int p2)
 	return x^n;
 }
 
+/*  Swapping individual bits pair with XOR   */
 unsigned int swap_bits_pair(unsigned int num, int p, int i, int j)
 {
 	unsigned int x = ((num >> i) ^ (num >> j)) & ((1 << p) - 1);
