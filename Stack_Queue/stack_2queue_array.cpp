@@ -1,6 +1,6 @@
 /**
  * @file stack_2queue.cpp
- * @brief create stack using 2 queues
+ * @brief create stack using 2 queues (Array version)
  *
  * @author Mayur Aggarwal
  * @bug No known bugs.

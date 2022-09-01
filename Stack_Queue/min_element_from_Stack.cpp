@@ -51,5 +51,5 @@ int pop(void)
 		int popped = min_element;
 		min_element = 2*min_element - y;	// make last minimum element using this formula
 	}
-	return temp;
+	return popped;
 }
