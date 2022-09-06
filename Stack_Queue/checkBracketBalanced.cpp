@@ -3,7 +3,7 @@
  * @brief check if given string of brackets are balanced
  *
  * @author Mayur Aggarwal
- * @bug No known bugs.
+ * @bug No known bugs. 
  * Contact: aga.mayur@gmail.com
  *
  */
@@ -28,6 +28,7 @@ int areBracketBalanced(char* str)
 {
     stack<int> s;
     int i = 0;
+    char popped = '$';
     while (str[i] != '\0')
     {
         if (str[i] == '{' || str[i] == '(' || str[i] == '[')
@@ -36,8 +37,11 @@ int areBracketBalanced(char* str)
         }
         if (str[i] == '}' || str[i] == ')' || str[i] == ']')
         {
-            char popped = s.top();
-            s.pop();
+            popped = '$';   // init before popping the elem from stack
+            if(!s.empty()){ // pop only if elem is present in stack
+                popped = s.top();
+                s.pop();
+            }
             if (!isMathcingPair(popped, str[i]))
             {
                 return 0;
