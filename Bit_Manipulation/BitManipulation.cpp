@@ -199,15 +199,21 @@ int SetBits_bw_i_j_pos(int num, int i, int j)
 	return res;
 }
 
-unsigned int count_trailing_zeroes_naive(unsigned int n)
+unsigned int trailingzero(unsigned int n)
 {
-	unsigned int c;
-	n = (n ^ (n-1)) >> 1;
-	for(c = 0; n; c++)
-	{
-		n >>= 1;
+	unsigned int i = 0;
+	if (n) {
+		n = (n ^ (n - 1)) >> 1;	  // Set n's trailing 0s to 1s and zero rest
+		for (i = 0; n; i++)
+		{
+			n >>= 1;
+		}
 	}
-	return c;
+	else
+	{
+		i = CHAR_BITS * sizeof(n);
+	}
+	return i;
 }
 
 unsigned int count_trailing_zeroes_binary_search(unsigned int n)
