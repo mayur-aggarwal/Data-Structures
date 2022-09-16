@@ -199,6 +199,23 @@ int SetBits_bw_i_j_pos(int num, int i, int j)
 	return res;
 }
 
+#if ONEWAY
+int reset_bits_num(int num, int p1, int p2)
+{
+	int allones = ~0;
+	int set1 = (allones << p1) - 1;
+	int set2 = (allones << p2) - 1;
+	return (num & (set1 & set2));
+}
+#else if OTHERWAY
+int reset_bits_num(int num, int p1, int p2)
+{
+	RESET_BIT(num, p1);
+	RESET_BIT(num, p2);
+	return num;
+}
+#endif
+
 unsigned int trailingzero(unsigned int n)
 {
 	unsigned int i = 0;
