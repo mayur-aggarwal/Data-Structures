@@ -69,6 +69,16 @@ unsigned int swapbits(unsigned int n, unsigned int p1, unsigned int p2)
 }
 
 /*  Swapping individual bits pair with XOR   */
+unsigned int swapBits(unsigned int x, unsigned int p1, unsigned int p2, unsigned int n)
+{
+	unsigned int set1 = (x >> p1) & ((1 << n)-1);
+	unsigned int set2 = (x >> p2) & ((1 << n)-1);
+	
+	unsigned int xor = set1 ^ set2;
+	xor = (xor << p1) | (xor << p2);
+	return (x ^ xor);
+}
+
 unsigned int swap_bits_pair(unsigned int num, int p, int i, int j)
 {
 	unsigned int x = ((num >> i) ^ (num >> j)) & ((1 << p) - 1);
