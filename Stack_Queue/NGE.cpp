@@ -17,7 +17,7 @@ void NGE(int *arr, size_t n)
 {
   stack<int> s;
   s.push(arr[0]);
-  for(int i = 0; i < n; i++)
+  for(int i = 1; i < n; i++)
   {
     if(s.empty())
     {
